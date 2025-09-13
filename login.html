@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/CSS/login.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="containera nav-container">
+        <a href="index.html" class="logo">
+          <img
+            src="https://urise.up.gov.in/assets_front/images/polytechnic-logo.jpg"
+            alt="UP Polytechnic Logo"
+          />
+          UP Polytechnic
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Papers ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="cse.html">CSE</a></li>
+              <li><a href="civil.html">CIVIL</a></li>
+              <li><a href="textile.html">TEXTILE</a></li>
+            </ul>
+          </li>
+
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html" class="btn">Login</a></li>
+          <li><a href="signup.html" class="btn">Sign Up</a></li>
+        </ul>
+        <div class="menu-toggle">&#9776;</div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- Left Illustration -->
+      <div class="left-panel">
+        <p class="p">welcome Back!</p>
+
+        <div class="illustration">
+          <img src="/img/login.png" alt="" />
+
+          <p class="copyright">© 2025 UP Polytechnic | Powered by BTEUP</p>
+        </div>
+      </div>
+
+      <!-- Right Login Form -->
+      <div class="right-panel">
+        <h2>Login</h2>
+        <form action="#">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter your username"
+            required
+          />
+
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+          />
+
+          <a href="#" class="forgot">Forgot Password?</a>
+
+          <button type="submit">Login</button>
+
+          <p class="register">
+            Don’t have an account? <a href="signup.html">Register Now</a>
+          </p>
+          <p class="terms"><a href="#">Terms and Services</a></p>
+        </form>
+
+        <!-- Error Message -->
+      </div>
+    </div>
+    <script>
+      // Wait for the DOM to load
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form");
+        const usernameInput = document.getElementById("username");
+        const passwordInput = document.getElementById("password");
+
+        // Error message div banate hain
+        let errorMsg = document.createElement("p");
+        errorMsg.style.color = "black";
+        errorMsg.style.fontWeight = "bold";
+        errorMsg.style.marginTop = "10px";
+        form.appendChild(errorMsg);
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault(); // prevent page reload
+
+          const username = usernameInput.value.trim();
+          const password = passwordInput.value.trim();
+
+          // Username validation
+          if (username.length < 5) {
+            errorMsg.textContent =
+              "⚠ Username must be at least 5 characters long.";
+            return;
+          }
+
+          // Password validation
+          if (password.length < 8) {
+            errorMsg.textContent =
+              "⚠ Password must be at least 8 characters long.";
+            return;
+          }
+
+          // Agar dono sahi hain
+          errorMsg.textContent = "";
+          alert("🎉 Login Successful!");
+        });
+      });
+    </script>
+  </body>
+</html>
